@@ -41,4 +41,14 @@ func main() {
 	var firstByte byte = 'a'
 	fmt.Println(firstByte)         // 97
 	fmt.Println(string(firstByte)) // a
+
+	firstName := "Jon"
+	lastName := "Palacio"
+	// fullName := firstName + " " + lastName
+	// fullName := fmt.Sprintln(firstName, " ", lastName)
+	fullName := fmt.Sprintf("%v %v", firstName, lastName)
+	age := 33
+	// fmt.Println("9" + 1) // nope
+	// fmt.Println("Hi, my full name is " + fullName + " and I am " + age + "years old")
+	fmt.Printf("Hi, I am %v and I am %v (Type: %T) years old.", fullName, age, age)
 }
