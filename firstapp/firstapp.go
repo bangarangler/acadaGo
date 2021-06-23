@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/bangarangler/acadaGo/greeting"
+)
 
 func main() {
 	// long declaration
@@ -13,11 +17,12 @@ func main() {
 	// var greetingText = "Hello World!"
 
 	// infered type go will figure it out usually use
-	greetingText := "Hello World!"
+	// greetingText := "Hello World!"
 	luckyNumber := 12
 	unluckyNumber := luckyNumber + 5
 
 	fmt.Println(greetingText)
+	fmt.Println(greeting.GreetingTextFromGreeting)
 	fmt.Println(luckyNumber)
 	fmt.Println(unluckyNumber)
 
