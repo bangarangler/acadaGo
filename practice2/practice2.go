@@ -3,6 +3,9 @@ package main
 import "fmt"
 
 func main() {
+	// tells go hey this is alaways the value. if I try to change it yell at me.
+	const unchangingPI = 3.14
+	// unchangingPI = 3.45 // nope nope nope ; )
 	pi := 3.14
 	radius := 5
 
