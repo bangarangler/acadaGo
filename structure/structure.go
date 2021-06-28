@@ -17,7 +17,22 @@ type User struct { // uppercase if to be used in other packages lowercase if int
 	created   time.Time // custom type defined by go (struct from go team)
 }
 
-func NewUser(fName, lName, bDate string) User {
+func (u *User) outputDetails() { // method (now coupled with the User struct)
+	fmt.Printf("My name is %v %v (born on %v)", u.firstName, u.lastName, u.birthdate)
+}
+
+// func NewUser(fName, lName, bDate string) User {
+// 	created := time.Now()
+// 	user := User{  // thix is sub optimal will create and store 2 users in memory
+// 		firstName: fName,
+// 		lastName:  lName,
+// 		birthdate: bDate,
+// 		created:   created,
+// 	}
+// 	return user
+// }
+
+func NewUser(fName, lName, bDate string) *User {
 	created := time.Now()
 	user := User{
 		firstName: fName,
@@ -25,7 +40,7 @@ func NewUser(fName, lName, bDate string) User {
 		birthdate: bDate,
 		created:   created,
 	}
-	return user
+	return &user
 }
 
 var reader = bufio.NewReader(os.Stdin)
@@ -59,7 +74,9 @@ func main() {
 	newUser := NewUser(firstName, lastName, birthdate)
 
 	// fmt.Println(firstName, lastName, birthdate, created)
-	fmt.Println(newUser)
+	// fmt.Println(newUser)
+	// outputUserDetails(newUser)
+	newUser.outputDetails()
 }
 
 func getUserData(promptText string) string {
